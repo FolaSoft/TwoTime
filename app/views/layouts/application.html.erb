@@ -4,6 +4,7 @@
       <title>TwoTime Ruby on Rails App | <%= yield(:title) %></title>
 	    <%= render 'layouts/stylesheet_link_tag' %>
 	    <%= render 'layouts/javascript_include_tags' %>
+       <%= csrf_meta_tag %>
 	    <%= render 'layouts/shim' %>
   </head>
   
@@ -13,6 +14,7 @@
           <% flash.each do |key, value| %>
              <div class="alert alert-<%= key %>"><%= value %></div>
           <% end %>
+           
           <%= yield %>
           <%= debug(params) if Rails.env.development? %>
        <%= render 'layouts/footer' %>
