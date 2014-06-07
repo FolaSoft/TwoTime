@@ -181,3 +181,10 @@ select,
 input {
     height: auto !important;
 }
+
+/* User style */
+@media (max-width: 768px) {
+  #subnav {
+  padding-top: 6px;
+  }
+}
