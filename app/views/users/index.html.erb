@@ -1,25 +1,10 @@
-<% provide(:title, 'All Users') %>
+<% provide(:title, 'All users') %>
 <h1> All users </h1>
 
 <%= will_paginate %>
 
 <ul>
-    <% @users.each do |user| %>
-       <div class="panel panel-defualt">
-	       <div class="well-sm">
-	          <div class="media">   
-			       <li calss="media-body">
-			           <span  class="media-object"> <%= gravatar_for user, size: 52 %></span>	
-			           <h4 class="media-heading"> <%= link_to user.name, user , class: "media-body"%></h4>
-				                <span><a href="#" class="btn btn-xs label label-success">Message</a></span> 
-				                <span><a href="#" class="btn btn-xs label label-info">Connect</a></span> 
-								<span><a href="#" class="btn btn-xs label label-warning">Follow</a></span> 
-			           
-			       </li>
-		       </div>
-	       </div>
-	   </div>	
-    <% end %>
+    <%= render @users %>
 </ul>
 
-<%= will_paginate %>
+<%= will_paginate  %>
