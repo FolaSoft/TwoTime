@@ -1,0 +1,15 @@
+ <div class="panel panel-defualt">
+	   <div class="well-sm">
+	      <div class="media"> 
+	           <li class="media-body">
+			       <span  class="media-object"> <%= gravatar_for user, size: 52 %></span>	
+			       <h4 class="media-heading"> <%= link_to user.name, user , class: "media-body"%></h4>
+
+			       <% if current_user.admin? && !current_user?(user) %>
+			           <%= link_to "delete", user, method: :delete,
+			                                       data: { confirm: "You sure?"}, class: " btn btn-xs label label-warning" %>
+			                                       <% end %>
+			   </li>
+		  </div>
+	   </div>
+  </div>
