@@ -1,4 +1,52 @@
-<div class="center jumbotron">
+
+ <% if signed_in? %>
+  <div class="row">
+    <div class="col-xs-12 col-md-3">
+       <div class="list-group">
+		  <a href="#" class="list-group-item heading ">
+		    <span class="badge">14</span>
+		    Wall
+		  </a>
+		  <a href="#" class="list-group-item">
+		    <span class="badge">4</span>
+		    Skills
+		  </a>
+		  <a href="#" class="list-group-item">
+		    <span class="badge">32</span>
+		    Schedule
+		  </a><a href="#" class="list-group-item">
+		    <span class="badge">2</span>
+		    Calender
+		  </a>
+		</div>
+
+		    <section>
+				<%= render 'shared/user_info' %>
+			</section>
+			<section>
+				<%= render 'shared/micropost_form' %>
+			</section>
+   </div>
+    <div class="col-xs-12 col-md-6">
+	       <ul class="list-group">
+			  <a href='#' class="list-group-item">
+			       <span class="badge"> 53 </span>
+			       Wall
+			  </a>
+		    </ul>
+			
+
+			<div class="span8">
+               <%= render 'shared/feed' %>
+            </div>
+    </div>
+	<div class="hidden-xs col-md-3">
+	<h2> I am hidden for phones </h2>
+	</div>
+    
+  </div>
+ <% else %>
+ <div class="center jumbotron">
   <h1>Welcome to your Bussiness App</h1>
 
   <h2>
@@ -11,3 +59,4 @@
 </div>
 
 <%= link_to image_tag("rails.png", alt: "Logo"), 'http://google.com/' %>
+ <% end %>
