@@ -1,7 +1,7 @@
 <%= provide(:title, @user.name) %>
 <div class="row">
    <div class="col-xs-12 col-md-3">
-       <div class="list-group">
+       <!--div class="list-group">
 		  <a href="#" class="list-group-item heading ">
 		    <span class="badge">14</span>
 		    Transcript
@@ -17,7 +17,13 @@
 		    <span class="badge">2</span>
 		    Calender
 		  </a>
-		</div>
+		</div-->
+		<%= render 'shared/user_info' %>
+		<%= render 'shared/stats' %>
+
+		<%= render 'follow_form' if signed_in? %>
+
+
    </div>
     <div class="col-xs-12 col-md-6">
 	  <% if @user.microposts.any? %>
