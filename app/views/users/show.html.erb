@@ -1,31 +1,26 @@
 <%= provide(:title, @user.name) %>
 <div class="row">
-   <div class="col-xs-12 col-md-3">
-       <!--div class="list-group">
-		  <a href="#" class="list-group-item heading ">
-		    <span class="badge">14</span>
-		    Transcript
-		  </a>
-		  <a href="#" class="list-group-item">
-		    <span class="badge">4</span>
-		    Take Home
-		  </a>
-		  <a href="#" class="list-group-item">
-		    <span class="badge">32</span>
-		    Schedule
-		  </a><a href="#" class="list-group-item">
-		    <span class="badge">2</span>
-		    Calender
-		  </a>
-		</div-->
-		<%= render 'shared/user_info' %>
-		<%= render 'shared/stats' %>
+   <div class="col-xs-12 col-md-4">
+           <section>
+				<div class="panel panel-defualt">
+					   <div class="well-sm">
+					      <div> 
+					           <li class="media">
+						            <div class="media-body">
+								       <span class="media-object"> <%= gravatar_for @user %> </span>	
+								        <h4 class="media-heading"> <%= @user.name %></h4>
+	                                       <%= render 'follow_form' if signed_in? %>
+					                </div>
+							   </li>
+				           </div>
+					   </div>
+				  </div>
+			</section>
 
-		<%= render 'follow_form' if signed_in? %>
-
-
-   </div>
-    <div class="col-xs-12 col-md-6">
+		<div class="panel panel-default">
+		<div class="well-sm"> <%= render 'shared/stats' %> <%= pluralize(@user.microposts.count, "wallpost") %></div></div>
+ </div>
+    <div class="col-xs-12 col-md-8">
 	  <% if @user.microposts.any? %>
 			<ul class="list-group">
 			  <a href='#' class="list-group-item">
@@ -33,14 +28,11 @@
 			       Microposts
 			  </a>
 		    </ul>
-			  
-				<div class="microposts">
-					<%= render @microposts %>
-				</div>
-		        <%= will_paginate @microposts %>
+	   <div class="microposts">
+			<%= render @microposts %>
+		</div>
+		<%= will_paginate @microposts %>
 	   <% end %>
 	</div>
-	<div class="hidden-xs col-md-3">
-	<h2> I am hidden for phones </h2>
-	<div>
+
 </div>
