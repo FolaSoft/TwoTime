@@ -1,0 +1,59 @@
+<% provide(:title, @title) %> 
+<div class="row">
+  <div class="col-xs-12 col-md-4">
+	    <section>
+            <div class="panel panel-defualt">
+					   <div class="well-sm">
+					      <div> 
+					           <li class="media">
+						            <div class="media-body">
+								       <span class="media-object"> <%= gravatar_for @user %> </span>	
+								        <h4 class="media-heading"> <%= @user.name %></h4>
+	                                       <span><%= link_to "Back to my profile", @user %></span> 
+
+					                </div>
+							   </li>
+				           </div>
+					   </div>
+				  </div>
+        </section>
+	    <section>
+            <div class="panel panel-defalt">
+			    <div class="well-sm"> <%= render 'shared/stats' %> <%= pluralize(@user.microposts.count, "wallpost") %>
+			     <% if @users.any? %>
+				  <div class="panel panel-default">
+					  <div class="well-sm">
+						    <li class="media">
+						       <div class="media-body">
+		                           <% @users.each do |user| %>
+								   <%= link_to gravatar_for(user, size: 30), user %>
+								   <% end %> 
+						      </div>
+						   </li>
+					 </div>
+				  </div>
+			 <% end %> 
+			    </div>
+		   </div>
+		 
+		    
+	    </section>
+          
+  </div>
+  <div class="col-xs-12 col-md-8">
+     
+	  <% if @users.any? %>
+	  	<ul class="list-group">
+			  <a href='#' class="list-group-item">
+			       <span class="badge"><%= @users.count %></span>
+			       <%= @title %>
+
+			  </a>
+		    </ul>
+	       <%= render @users %>
+	       <%= will_paginate %>
+	   <% end %>
+  </div>
+</div>
+
+

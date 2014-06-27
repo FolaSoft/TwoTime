@@ -3,9 +3,10 @@
   <div class="row">
     <div class="col-xs-12 col-md-4">
        <div class="list-group">
-		  <a href="#" class="list-group-item heading ">
-		    <span class="badge">14</span>
-		    Wall
+		  <a href='#' class="list-group-item">
+		    <!-- there is a initialization sequneces that renders @user.micropost.count for this UI control so @feed_items_count was used as a kludge -->
+		    <span class="badge"> <%= @feed_items_count %> </span>
+		    Activity Feed 
 		  </a>
 		  <a href="#" class="list-group-item">
 		    <span class="badge">4</span>
@@ -35,8 +36,8 @@
     <div class="col-xs-12 col-md-8">
 	       <ul class="list-group">
 			  <a href='#' class="list-group-item">
-			       <span class="badge"> 53 </span>
-			       Wall
+			       <span class="badge"> <%=  @user.microposts.count %> </span>
+			       Activity Feed
 			  </a>
 		    </ul>
 			
